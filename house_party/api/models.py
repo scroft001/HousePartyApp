@@ -1,4 +1,18 @@
 from django.db import models
+import string
+import random
+
+#random 8 digit code
+def generate_unique_code():
+    length = 6
+
+    while True:
+        code = ''.join(random.choices(string.ascii_uppercase, k=length))
+        #is random code unique
+        if Room.objects.filter(code=code).count() == 0:
+            break
+
+    return code
 
 # Create your models here. Datbase thigs we want to store and use
 class Room(models.Model):
