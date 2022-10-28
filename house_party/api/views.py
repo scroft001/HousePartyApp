@@ -6,6 +6,6 @@ from .models import Room
 # Create your views here.
 #add endpoints here
 #API endpoint
-class RoomView(generics.CreateAPIView):
+class RoomView(generics.ListAPIView):
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
